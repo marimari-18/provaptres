@@ -1,0 +1,48 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        string[] entradas = Console.ReadLine().Split(' ');
+        double N1 = double.Parse(entradas[0]);
+        double N2 = double.Parse(entradas[1]);
+        double N3 = double.Parse(entradas[2]);
+        double N4 = double.Parse(entradas[3]);
+
+        // Calcula a média ponderada
+        double media = (N1 * 2 + N2 * 3 + N3 * 4 + N4 * 1) / 10;
+        Console.WriteLine("Media: {0:F1}", media);
+
+        if (media >= 7.0)
+        {
+            Console.WriteLine("Aluno aprovado.");
+        }
+        else if (media >= 5.0 && media < 7.0)
+        {
+            Console.WriteLine("Aluno em exame.");
+
+            // Lê a nota do exame
+            double notaExame = double.Parse(Console.ReadLine());
+            Console.WriteLine("Nota do exame: {0:F1}", notaExame);
+
+            // Recalcula a média final
+double mediaFinal = (media + notaExame) / 2;
+
+            if (mediaFinal >= 5.0)
+            {
+                Console.WriteLine("Aluno aprovado.");
+            }
+            else
+            {
+                Console.WriteLine("Aluno reprovado.");
+            }
+
+            Console.WriteLine("Media final: {0:F1}", mediaFinal);
+        }
+        else
+        {
+            Console.WriteLine("Aluno reprovado.");
+        }
+    }
+}
